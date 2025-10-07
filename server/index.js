@@ -5,8 +5,10 @@ dotenv.config();
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import connectdb from './db/db.js';
-let port=process.env.PORT;
+import boarRoute from "./routes/bord.route.js"
+import taskRoute from "./routes/task.route.js"
 
+let port=process.env.PORT;
 
 const corsOption = {
     origin:"http:localhost:5173",
