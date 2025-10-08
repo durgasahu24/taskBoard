@@ -11,9 +11,9 @@ import taskRoute from "./routes/task.route.js"
 let port=process.env.PORT;
 
 const corsOption = {
-    origin:["http://localhost:5173","https://task-board-ten-lemon.vercel.app"],
-    Credential:true
-}
+    origin: ["http://localhost:5173", "https://task-board-ten-lemon.vercel.app"],
+    credentials: true, 
+};
 
 
 app.use(express.json());
