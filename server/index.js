@@ -12,7 +12,6 @@ let port=process.env.PORT;
 
 const corsOption = {
     origin:"https://task-board-nine-pi.vercel.app",
-    origin:"https://task-board-nine-pi.vercel.app/",
     credentials:true, 
 };
 
