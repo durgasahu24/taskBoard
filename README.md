@@ -1,9 +1,12 @@
+
 # TaskBoard
 
 A Trello-like **task management / team collaboration app** built with **MERN** (MongoDB, Express, React, Node.js).
 Users can create boards, add tasks, update status, search & filter tasks, and more.
 
+**Live Demo:** [https://task-board-flax-nine.vercel.app/](https://task-board-flax-nine.vercel.app/)
 
+---
 
 ## Features
 
@@ -30,7 +33,7 @@ Users can create boards, add tasks, update status, search & filter tasks, and mo
 * **CORS & Deployment Ready**
   Backend configured to allow requests from your frontend origin.
 
-
+---
 
 ## Tech Stack
 
@@ -73,7 +76,7 @@ taskboard/
 * MongoDB URI (Atlas or local)
 * `0.0.0.0/0` temporarily allowed for dev, or specific IPs for production
 
-
+---
 
 ### Backend Setup
 
@@ -195,4 +198,13 @@ npm run build
   }
 ]
 ```
+
+> ⚠️ Replace `OPERATIONS_BOARD_ID` and `DEVELOPMENT_BOARD_ID` with your actual board `_id` from MongoDB.
+
+---
+
+**Live Frontend Demo:** [https://task-board-flax-nine.vercel.app/](https://task-board-flax-nine.vercel.app/)
+
+---
+
 
