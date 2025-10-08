@@ -47,15 +47,6 @@ const createTask = async (req, res) => {
 
 
 
-const fetAllTask = async (req, res) => {
-    try {
-        const tasks = await TASK.find();
-
-        return res.status(200).json(tasks)
-    } catch (error) {
-        return res.status(500).json({ message: "server error" })
-    }
-}
 
 
 
@@ -138,6 +129,8 @@ const taskById = async (req, res) => {
 
 
 export const updateTaskFully = async (req, res) => {
+
+    console.log("welcom to update completely :")
     try {
 
         const task = await TASK.findById(req.params.id);
@@ -150,6 +143,7 @@ export const updateTaskFully = async (req, res) => {
         const { title, description, status, priority, assignedTo, dueDate, boardBelongTo } = req.body;
 
         console.log("title, description, status, priority, assignedTo, dueDate, boardBelongTo ",title, description, status, priority, assignedTo, dueDate, boardBelongTo)
+
 
         if (title !== undefined) task.title = title;
         if (description !== undefined) task.description = description;
