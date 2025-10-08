@@ -19,7 +19,6 @@ function App() {
           <Route path="/board/:id" element={<BoardDetails />} />
           <Route path="/createTask/:id" element={<CreateTask />} />
           <Route path="/task/update/:id" element={<UpdateTask />} />
-
         </Routes>
       </BrowserRouter>
     </div>

@@ -23,7 +23,7 @@ function CreateTask() {
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8000/api/task/createTask", Task);
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/task/createTask`, Task);
             console.log("Task created:", res.data);
             navigate(`/board/${params.id}`);
         } catch (err) {

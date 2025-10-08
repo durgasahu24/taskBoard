@@ -14,7 +14,7 @@ function BoardDetails() {
 
     const fetchTasks = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/task/taskdata/${boardId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/task/taskdata/${boardId}`);
         setTasks(res.data);
       } catch (error) {
         console.log('Error fetching tasks:', error);
@@ -27,7 +27,7 @@ function BoardDetails() {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/task/delete/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/task/delete/${id}`);
       setTasks((prev) => prev.filter((t) => t._id !== id));
     } catch (error) {
       console.log('Error deleting task:', error);
@@ -36,7 +36,7 @@ function BoardDetails() {
 
   const updateTaskStatus = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:8000/api/task/updateStatus/${id}`, { status: newStatus });
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/task/updateStatus/${id}`, { status: newStatus });
       setTasks((prev) =>
         prev.map((task) => (task._id === id ? { ...task, status: newStatus } : task))
       );
@@ -88,7 +88,7 @@ function BoardDetails() {
       </div>
 
       <div className="flex justify-between mx-11 mt-6 items-start">
-        
+
         {["Todo", "In Progress", "Done"].map((status) => (
           <div key={status} className="w-1/3 px-2">
             <h2 className="text-xl font-bold mb-4">{status}</h2>
@@ -100,7 +100,12 @@ function BoardDetails() {
                   <h3 className="font-medium">Title: {task.title}</h3>
                   <p>Assigned To: {task.assignedTo}</p>
                   <p>Description: {task.description}</p>
-                  <p>Due Date: {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : "N/A"}</p>
+                  <p>
+                    Due Date: {task.dueDate
+                      ? new Date(task.dueDate).toLocaleDateString('en-GB')
+                      : "N/A"}
+                  </p>
+
                   <p>Priority: {task.priority}</p>
 
                   <div className="flex gap-2 mt-2">

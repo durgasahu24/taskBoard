@@ -7,6 +7,8 @@ function UpdateTask({ taskData }) {
     const params = useParams();
     const navigate = useNavigate();
 
+
+
     const [Task, setTask] = useState({
         title: "",
         description: "",
@@ -24,7 +26,7 @@ function UpdateTask({ taskData }) {
     console.log("id ", id)
     useEffect(() => {
         const fetchTask = async () => {
-            const res = await axios.get(`http://localhost:8000/api/task/taskById/${id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/task/taskById/${id}`);
             console.log("res ", res)
             setTask({
                 title: res.data.title,
@@ -51,7 +53,7 @@ function UpdateTask({ taskData }) {
         e.preventDefault();
 
         console.log("task ",Task)
-        const res = await axios.put(`http://localhost:8000/api/task/update/${taskId}`,Task);
+        const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/task/update/${taskId}`,Task);
         navigate(`/board/${Task.boardBelongTo}`);
     }
 

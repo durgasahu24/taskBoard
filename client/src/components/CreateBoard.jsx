@@ -9,7 +9,7 @@ function CreateBoard() {
 
   const create = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/api/createBoard", { boardName: input })
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/createBoard`, { boardName: input })
       if (res.status === 201) {
         navigate("/")
       }
