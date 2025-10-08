@@ -8,10 +8,12 @@ function AllBoards() {
   const [search, setSearch] = useState(""); // search input state
   const navigate = useNavigate();
 
+  console.log("url ", import.meta.env.VITE_API_URL)
+
   useEffect(() => {
     const fetchBoards = async () => {
       try {
-        let res = await axios.get("http://localhost:8000/api/fetchBoards");
+        let res = await axios.get(`${import.meta.env.VITE_API_URL}/api/fetchBoards`);
         setBoards(res?.data);
       } catch (err) {
         console.error("Error fetching boards:", err);
