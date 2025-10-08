@@ -7,6 +7,8 @@ const createBoard = async (req, res) => {
 
         const { boardName } = req.body;
 
+        console.log("boardname ",boardName);
+
         if (!boardName) {
             return res.status(400).json({ message: "board name is required" })
         }
@@ -22,7 +24,7 @@ const createBoard = async (req, res) => {
             boardName
         })
 
-        return res.status(201).json({ message: "board is created successfully " });
+        return res.status(201).json({ message: "board is created successfully ", board: newBoard });
 
 
     } catch (error) {
@@ -31,7 +33,7 @@ const createBoard = async (req, res) => {
 }
 
 
-const fetchAllBoard = async (req,res) => {
+const fetchAllBoard = async (req, res) => {
 
     try {
         const boards = await Board.find();

@@ -7,7 +7,7 @@ const boardSchema = new mongoose.Schema({
         required:true
     }
 },{
-    createdAt:true
+    timestamps:true
 })
 
 

@@ -15,7 +15,7 @@ const taskSchma = new mongoose.Schema({
     },
     priority: {
         type: String,
-        enum: ["Low", "Medium", "Height"]
+        enum: ["Low", "Medium", "High"]
     },
     assignedTo: {
         type: String,
@@ -29,7 +29,7 @@ const taskSchma = new mongoose.Schema({
         ref: "BOARD"
     }
 }, {
-    createdAt: true
+    timestamps: true
 })
 
 const TASK = mongoose.model("TASK", taskSchma);

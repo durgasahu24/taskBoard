@@ -11,7 +11,7 @@ import taskRoute from "./routes/task.route.js"
 let port=process.env.PORT;
 
 const corsOption = {
-    origin:"http:localhost:5173",
+    origin:"http://localhost:5173",
     Credential:true
 }
 
@@ -20,6 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors(corsOption));
 app.use(cookieParser())
+
+app.use("/api",boarRoute);
+app.use("/api/task",taskRoute);
 
 
 
