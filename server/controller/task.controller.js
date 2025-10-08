@@ -140,10 +140,7 @@ const taskById = async (req, res) => {
 export const updateTaskFully = async (req, res) => {
     try {
 
-        console.log("update task id ",req.params.id)
         const task = await TASK.findById(req.params.id);
-
-        
 
 
         if (!task) {
