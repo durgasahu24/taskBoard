@@ -167,7 +167,6 @@ export const updateTaskFully = async (req, res) => {
 
 export default {
     createTask,
-    fetAllTask,
     updateTaskStatus,
     deleteTaskById,
     fetchTasksByBoardId,
